@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTML5 и CSS3 сайт</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header>
+    <div id="logo" onclick="slowScroll('#top')">
+      <span>Fish</span>
+    </div>
+    <div id="about">
+      <a href="#" title="Возможности" onclick="slowScroll('#main')">О нас</a>
+      <a href="#" onclick="slowScroll('#galery')" title="Преимущества">Галерея</a>
+      <a href="#" onclick="slowScroll('#contacts')" title="Контакты">Контакты</a>
+      <a href="#" onclick="slowScroll('#faq')" title="Ответы на вопросы">FAQ</a>
+    </div>
+  </header>
+
+  <div id="top">
+    <h1>Рыба</h1>
+    <h3>2 точки в Красноярске</h3>
+  </div>
+
+  <div id="main">
+    <div class="intro">
+      <h2>Наши услуги помогут вам!</h2>
+      <span>Большой выбор разнообразной рыбы</span>
+    </div>
+    <div class="text">
+      <span>Наша фирма уже более 15 лет осуществляет реализацию разнообразной рыбной продукции. Мы самостоятельно занимаемся отслеживанием качества нашей продукции, что позволяет нам занимать высокие позиции на рынке Красноярска. В ассортимент наших товаров входит солёная, вяленая и капчёная рыба, которую мы можем Вам предложить оптом и в розницу по достаточно низким ценам. Мы находимся на ярмарке "Енисейский привоз" по адресу: г.Красноярск улица Шахтёров 35/1 корпус И-3, рабочий телефон точки: 8-904-890-56-76, а также г.Красноярск улица Шахтёров 35/2 павильон №5, рабочий телефон точки: 8-904-890-56-79. Можете связаться с администрацией по номеру 8-902-924-30-43 или 8-904-895-66-51.</span>
+    </div>
+  </div>
+
+  <div id="galery">
+    <h2>Галерея</h2>
+
+    <div class="img">
+      <img src="Images/DSC_0189.jpg" alt="">
+      <span>Наша продукция</span>
+    </div>
+    <div class="img">
+      <img src="Images/DSC_0219.jpg" alt="">
+      <span>Сотрудник месяца</span>
+    </div>
+    <div class="img">
+      <img src="Images/DSC_0252.jpg" alt="">
+      <span>Добро пожаловать!</span>
+    </div>
+  </div>
+
+  <div id="contacts">
+    <center><h5>Обратная связь</h5></center>
+    <form id="form_input" action="form_processing.php">
+      <label for="name">Имя <span>*</span></label><br>
+      <input type="text" placeholder="Введите имя" name="name" id="name"><br>
+      <label for="email">Ваша почта <span>*</span></label><br>
+			<input type="email" placeholder="Введите email" name="email" id="email"><br>
+			<label for="message">Сообщение <span>*</span></label><br>
+			<textarea placeholder="Введите ваше сообщение" name="message" id="message"></textarea><br>
+			<div id="mess_send" class="btn">Отправить</div>
+    </form>
+  </div>
+
+  <div id="faq">
+    <div>
+      <span class="title">Оплата и доставка</span><br>
+      <span class="heading">Как будет проходит оплата?</span>
+      <p>Наличный и безналичный рассчёт.</p>
+      <span class="heading">Как заказать доставку?</span>
+      <p>Доставку можно закать по номерам телефонов указанных в блоке "О нас"</p>
+      <span class="heading">Осуществляем ли мы доставку за пределы г.Красноярска?</span>
+      <p>Нет, мы не осуществляем доставку за пределы города Красноярска</p>
+      <span class="heading">По каким дням осуществляется доставка?</span>
+      <p>Доставка осуществляется по городу Красноярску в соответствии с рабочим графиком.</p>
+    </div>
+    <div>
+      <span class="title">Информация</span><br>
+      <span class="heading">Часы и дни работы</span>
+      <p>Будни с 8:00 до 16:00, суббота с 9:00 до 14:00, воскресенье - выходной.</p>
+      <span class="heading">Что входит в услуги сервиса?</span>
+      <p>Мы предоставляем как самовывоз, так и доставку по г. Красноярску</p>
+    </div>
+    <div>
+      <span class="title">Гарантии</span><br>
+      <span class="heading">Какие есть гарантии?</span>
+      <p>Своим клиентам мы предлагаем гибкие условия, хороший сервис и конкурентные цены.</p>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    function slowScroll(id) {
+      $('html, body').animate({
+        scrollTop: $(id).offset().top
+      }, 500);
+    }
+
+    $(document).on("scroll", function () {
+      if($(window).scrollTop() === 0)
+        $("header").removeClass("fixed");
+      else
+        $("header").attr("class", "fixed");
+    });
+  </script>
+</body>
+</html>
